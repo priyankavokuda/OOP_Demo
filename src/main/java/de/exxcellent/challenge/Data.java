@@ -17,8 +17,20 @@ public class Data {
 		return null;
 		
 	}
+	
+	public ArrayList<Integer> findColsDifference(ArrayList contents) {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> diffr = new ArrayList<Integer>();
+		return diffr;
+	}
+	/**
+	 * function finds the index of the minimum element from arraylist
+	 * @param diffr
+	 * @return index
+	 */
 	public int findMinOfColumn(ArrayList<Integer> diffr) {
 		int minIndex = diffr.indexOf(Collections.min(diffr));
 		return minIndex;
 	}
+
 }
