@@ -47,7 +47,7 @@ public class AppTest {
 		ArrayList<WeatherData> weatherDataContents = wd
 				.parseContentfromCSV(weatherDataFileName);
 		ArrayList<Integer> temprSpread = wd
-				.findTemprDifference(weatherDataContents);
+				.findDiffrOfCols(weatherDataContents);
 		int temprIndex = wd.findMinOfColumn(temprSpread);
 		Assert.assertEquals((weatherDataContents.get(temprIndex)).getDay(),
 				"14");

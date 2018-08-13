@@ -7,9 +7,10 @@ import java.util.Collections;
  * Base Class storing basic information and actions performed on a file for this challenge
  * 
  * @author priyanka
+ * @param <T>
  *
  */
-public class Data {
+public class Data<T> {
 	String fname = null;
 	float size = 0;
 	
@@ -17,11 +18,13 @@ public class Data {
 		return null;
 		
 	}
-	
-	public ArrayList<Integer> findColsDifference(ArrayList contents) {
-		// TODO Auto-generated method stub
-		ArrayList<Integer> diffr = new ArrayList<Integer>();
-		return diffr;
+	/**
+	 * function performs subtraction of two columns of csv file
+	 * @return arraylist
+	 */
+	public ArrayList<Integer> findDiffrOfCols() {
+		ArrayList<Integer> temprSpread = new ArrayList<Integer>();
+		return temprSpread;
 	}
 	/**
 	 * function finds the index of the minimum element from arraylist
@@ -32,5 +35,6 @@ public class Data {
 		int minIndex = diffr.indexOf(Collections.min(diffr));
 		return minIndex;
 	}
+
 
 }

@@ -1,9 +1,9 @@
 package de.exxcellent.challenge;
 
 import de.exxcellent.challenge.WeatherData;
+import de.exxcellent.challenge.FootballData;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point
@@ -14,12 +14,6 @@ import java.util.Collections;
  */
 public final class App {
 
-	/**
-	 * function finds the index of the minimum element from arraylist
-	 * @param diffr
-	 * @return index
-	 */
-
 	public static void main(String... args) {
 		// Your preparation code …
 		WeatherData wd = new WeatherData();
@@ -27,19 +21,27 @@ public final class App {
 		ArrayList<WeatherData> weatherDataContents = wd
 				.parseContentfromCSV(weatherDataFileName);
 		ArrayList<Integer> temprSpread = wd
-				.findTemprDifference(weatherDataContents);
+				.findDiffrOfCols(weatherDataContents);
 		int temprIndex = wd.findMinOfColumn(temprSpread);
 
+		FootballData fd = new FootballData();
+		String footballDataFileName = "./src/main/resources/de/exxcellent/challenge/football.csv";
+		ArrayList<FootballData> footballDataContents = fd
+				.parseContentfromCSV(footballDataFileName);
+		ArrayList<Integer> smallestDist = fd
+				.findDiffrOfCols(footballDataContents);
+		int smallestDistIndex = fd.findMinOfColumn(smallestDist);
+		
 
 		String dayWithSmallestTempSpread = (weatherDataContents.get(temprIndex))
 				.getDay(); // Your day analysis function call …
-		//String teamWithSmallesGoalSpread = (footballDataContents
-		//		.get(smallestDistIndex)).getTeam(); // Your goal analysis
+		String teamWithSmallesGoalSpread = (footballDataContents
+				.get(smallestDistIndex)).getTeam(); // Your goal analysis
 													// function call …
 
 		System.out.printf("Day with smallest temperature spread : %s%n",
 				dayWithSmallestTempSpread);
-		//System.out.printf("Team with smallest goal spread       : %s%n",
-		//		teamWithSmallesGoalSpread);
+		System.out.printf("Team with smallest goal spread       : %s%n",
+				teamWithSmallesGoalSpread);
 	}
 }
