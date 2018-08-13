@@ -12,5 +12,5 @@ import java.util.ArrayList;
  *
  */
 public interface DataReader {
-	public ArrayList<String[]> readContents(String fname);
+	public ArrayList<String[]> readContents(String fileName);
 }

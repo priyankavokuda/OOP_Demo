@@ -1,7 +1,7 @@
 package de.exxcellent.challenge;
 
-import de.exxcellent.challenge.WeatherData;
-import de.exxcellent.challenge.FootballData;
+import de.exxcellent.file.FootballData;
+import de.exxcellent.file.WeatherData;
 
 import java.util.ArrayList;
 
@@ -18,19 +18,27 @@ public final class App {
 		// Your preparation code …
 		WeatherData wd = new WeatherData();
 		String weatherDataFileName = "./src/main/resources/de/exxcellent/challenge/weather.csv";
+		
+		//Get the contents from csv file and parse it class object form
 		ArrayList<WeatherData> weatherDataContents = wd
 				.parseContentfromCSV(weatherDataFileName);
+		//Get tempr spread
 		ArrayList<Integer> temprSpread = wd
 				.findDiffrOfCols(weatherDataContents);
-		int temprIndex = wd.findMinOfColumn(temprSpread);
+		//Get index of day with smallest tempr spread
+		int temprIndex = wd.findArgMinOfColumn(temprSpread);
 
 		FootballData fd = new FootballData();
 		String footballDataFileName = "./src/main/resources/de/exxcellent/challenge/football.csv";
+		
+		//Get the contents from csv file and parse it class object form
 		ArrayList<FootballData> footballDataContents = fd
 				.parseContentfromCSV(footballDataFileName);
+		//Get difference in goals
 		ArrayList<Integer> smallestDist = fd
 				.findDiffrOfCols(footballDataContents);
-		int smallestDistIndex = fd.findMinOfColumn(smallestDist);
+		//Get index of the team with smallest number of goal difference
+		int smallestDistIndex = fd.findArgMinOfColumn(smallestDist);
 		
 
 		String dayWithSmallestTempSpread = (weatherDataContents.get(temprIndex))

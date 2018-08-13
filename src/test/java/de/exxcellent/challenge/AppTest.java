@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.exxcellent.file.WeatherData;
+
 /**
  * Example JUnit4 test case.
  * 
@@ -48,7 +50,7 @@ public class AppTest {
 				.parseContentfromCSV(weatherDataFileName);
 		ArrayList<Integer> temprSpread = wd
 				.findDiffrOfCols(weatherDataContents);
-		int temprIndex = wd.findMinOfColumn(temprSpread);
+		int temprIndex = wd.findArgMinOfColumn(temprSpread);
 		Assert.assertEquals((weatherDataContents.get(temprIndex)).getDay(),
 				"14");
 

@@ -16,7 +16,7 @@ public class CSVDataReader implements DataReader {
 	String csvFileName;
 	String delimiter = ",";
 
-	public void setCsvFileName(String csvFileName) {
+	public void setCSVFileName(String csvFileName) {
 		this.csvFileName = csvFileName;
 	}
 
@@ -24,13 +24,13 @@ public class CSVDataReader implements DataReader {
 	 * Reads CSV file given the name of file and returns the contents of file
 	 * with each row stored in String array and all rows stored in ArrayList
 	 * 
-	 * @param fname
+	 * @param fileName
 	 * @return data stored as sring objects in ArrayList
 	 */
-	public ArrayList<String[]> readContents(String fname) {
+	public ArrayList<String[]> readContents(String fileName) {
 		String line = "";
 		ArrayList<String[]> contents = new ArrayList<String[]>();
-		setCsvFileName(fname);
+		setCSVFileName(fileName);
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(csvFileName));

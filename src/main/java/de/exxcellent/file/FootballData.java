@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.exxcellent.challenge;
+package de.exxcellent.file;
 
 import java.util.ArrayList;
 
@@ -46,24 +46,12 @@ public class FootballData extends Data{
 		return goals;
 	}
 
-	public void setGoals(int goals) {
-		this.goals = goals;
-	}
-
 	public int getGoalsAllowed() {
 		return goalsAllowed;
-	}
-
-	public void setGoalsAllowed(int goalsAllowed) {
-		this.goalsAllowed = goalsAllowed;
 	}
 	
 	public String getTeam() {
 		return team;
-	}
-
-	public void setTeam(String team) {
-		this.team = team;
 	}
 	
 	/**
@@ -75,9 +63,7 @@ public class FootballData extends Data{
 	 */
 	public ArrayList<FootballData> parseContentfromCSV(String fileName) {
 		// TODO Auto-generated method stub
-
-		CSVDataReader csvReader = new CSVDataReader();
-		ArrayList<String[]> fileContents = csvReader.readContents(fileName);
+		ArrayList<String[]> fileContents = super.parseContentfromCSV(fileName);
 		ArrayList<FootballData> contents = new ArrayList<FootballData>();
 		for (int i = 0; i < fileContents.size(); i++) {
 			FootballData fd = new FootballData(fileContents.get(i)[0],
@@ -102,10 +88,15 @@ public class FootballData extends Data{
 	public ArrayList<Integer> findDiffrOfCols(
 			ArrayList<FootballData> contents) {
 		ArrayList<Integer> smallestDist = new ArrayList<Integer>();
-		
+		ArrayList<Integer> goals = new ArrayList<Integer>();
+		ArrayList<Integer> goalsAllowed = new ArrayList<Integer>();
 		for (FootballData fd : contents) {
-			smallestDist.add(Math.abs(fd.getGoals() - fd.getGoalsAllowed()));
+			goals.add(fd.getGoals());
 		}
+		for (FootballData fd : contents) {
+			goalsAllowed.add(fd.getGoalsAllowed());
+		}
+		smallestDist = super.findDiffrOfCols(goals, goalsAllowed);
 		return smallestDist;
 	}
 	
