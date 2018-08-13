@@ -9,7 +9,7 @@ import util.CSVDataReader;
  * Base Class storing basic information and actions performed on a file for this challenge
  * 
  * @author priyanka
- * @param <T>
+ *
  *
  */
 public class Data<T> {
