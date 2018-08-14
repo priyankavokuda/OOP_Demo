@@ -27,7 +27,6 @@ public final class App {
 		//Get index of day with smallest tempr spread
 		int temprIndex = wd.findArgMinOfColumn(temprSpread);
 
-		
 		FootballData fd = new FootballData();
 		
 		//Get the contents from csv file and parse it class object form
