@@ -15,6 +15,7 @@ import util.CSVDataReader;
  * 
  */
 public class FootballData extends Data{
+	String fileName = "./src/main/resources/de/exxcellent/challenge/football.csv";
 	String team;
 	int games;
 	int wins;
@@ -40,6 +41,14 @@ public class FootballData extends Data{
 		this.goals = goals;
 		this.goalsAllowed = goalsAllowed;
 		this.points = points;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public int getGoals() {

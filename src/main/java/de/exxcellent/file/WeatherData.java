@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * 
  */
 public class WeatherData extends Data {
+	String fileName = "./src/main/resources/de/exxcellent/challenge/weather.csv";
 	String day;
 	float mxT;
 	float mnT;
@@ -56,6 +57,14 @@ public class WeatherData extends Data {
 		this.mxR = mxR;
 		this.mn = mn;
 		this.rAvSLP = rAvSLP;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getDay() {
