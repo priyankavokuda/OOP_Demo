@@ -55,28 +55,19 @@ public class Data<T> {
 	 * @param diffr
 	 * @return index
 	 */
-	public int findArgMinOfColumn(ArrayList<Number> col) {
+	public int findArgMinOfColumn(ArrayList<?> col) {
 		int minIndex = -1;
 		if(col.get(1) instanceof Integer){
-			ArrayList<Integer> intCol = new ArrayList<Integer>();
-			for (int i = 0; i < col.size(); i++) {
-				intCol.add(((Integer) col.get(i)));
-			minIndex = col.indexOf(Collections.min(intCol));
-			}
+			ArrayList<Integer> intCol = (ArrayList<Integer>) col;
+			minIndex = intCol.indexOf(Collections.min(intCol));
 		}
 		if(col.get(1) instanceof Float){
-			ArrayList<Float> floatCol = new ArrayList<Float>();
-			for (int i = 0; i < col.size(); i++) {
-				floatCol.add(((Float) col.get(i)));
-			minIndex = col.indexOf(Collections.min(floatCol));
-			}
+			ArrayList<Float> floatCol = (ArrayList<Float>) col;
+			minIndex = floatCol.indexOf(Collections.min(floatCol));
 		}
 		if(col.get(1) instanceof Double){
-			ArrayList<Double> doubleCol = new ArrayList<Double>();
-			for (int i = 0; i < col.size(); i++) {
-				doubleCol.add(((Double) col.get(i)));
-			minIndex = col.indexOf(Collections.min(doubleCol));
-			}
+			ArrayList<Double> doubleCol = (ArrayList<Double>) col;
+			minIndex = doubleCol.indexOf(Collections.min(doubleCol));
 		}
 		return minIndex;
 	}
